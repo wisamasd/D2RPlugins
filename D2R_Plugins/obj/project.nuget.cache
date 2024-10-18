@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dIWb96VwLVVNA8XD/td4d4bX6hjNLHO5BRgHpH5ZW3OjMEx0LtRTS6yZGRsUzw6UmxzwPv6jNX7hnrYfeb21LA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\djsch\\D2R Files\\D2RPlugins\\D2R_Plugins\\D2R_Plugins.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\djsch\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

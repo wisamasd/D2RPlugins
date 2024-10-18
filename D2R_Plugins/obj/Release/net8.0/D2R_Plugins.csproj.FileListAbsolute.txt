@@ -1,0 +1,17 @@
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\D2R_Plugins.exe
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\D2R_Plugins.deps.json
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\D2R_Plugins.runtimeconfig.json
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\D2R_Plugins.dll
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\D2R_Plugins.pdb
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\bin\Release\net8.0\Newtonsoft.Json.dll
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.csproj.AssemblyReference.cache
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.AssemblyInfoInputs.cache
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.AssemblyInfo.cs
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.csproj.CoreCompileInputs.cache
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.csproj.CopyComplete
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.dll
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\refint\D2R_Plugins.dll
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.pdb
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\D2R_Plugins.genruntimeconfig.cache
+C:\Users\djsch\D2R Files\D2RPlugins\D2R_Plugins\obj\Release\net8.0\ref\D2R_Plugins.dll
