@@ -97,7 +97,7 @@ internal class ProcessHelper
         }
     }
 
-    internal static void EditMemory(int processId, Program.MemoryConfig[] memoryConfigs, Action<string> debugLogging = null, Action<string> errorLogging = null)
+    internal static void EditMemory(int processId, Models.MemoryConfig[] memoryConfigs, Action<string> debugLogging = null, Action<string> errorLogging = null)
     {
         if (memoryConfigs.Length == 0) return;
 

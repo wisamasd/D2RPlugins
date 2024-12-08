@@ -1,57 +1,24 @@
 ﻿using D2R_Plugins.Helpers;
+using D2R_Plugins.Models;
 using System.Diagnostics;
-using Newtonsoft.Json;
 
 namespace D2R_Plugins;
 
 partial class Program
 {
+    private const string CONFIG_NAME = "config.json";
+
     private static bool _debugLogging = false;
-
-    #region Config Classes
-    public class MemoryConfig
-    {
-        public string Description { get; set; }
-        public string Address { get; set; }
-        public List<string> Addresses { get; set; }
-        public int Length { get; set; }
-        public string Values { get; set; }
-    }
-
-    public class LanguageConfig
-    {
-        public string Locale { get; set; }
-        public string LocaleAudio { get; set; }
-    }
-
-    public class Config
-    {
-        public string CommandLineArguments { get; set; }
-        public bool DebugLogging { get; set; }
-        public bool MonsterStatsDisplay { get; set; }
-        public LanguageConfig Language { get; set; }
-        public List<MemoryConfig> MemoryConfigs { get; set; }
-    }
-    #endregion
 
     static void Main(string[] args)
     {
-        string configPath = "config.json";
-        var config = LoadConfig(configPath);
+        var config = TryLoadConfig();
 
-        if (config == null)
-        {
-            ErrorLogHandler("Failed to load configuration.");
-            return;
-        }
         _debugLogging = config.DebugLogging;
 
         TrySetupLanguage(config);
-
-        string processName = "../../../d2r.exe";
-        string arguments = config.CommandLineArguments;
-
-        Process process = LaunchProcess(processName, arguments);
+        
+        Process process = LaunchProcess(config);
 
         TryInjectHud(process, config);
         TryEditMemory(process, config);
@@ -59,17 +26,22 @@ partial class Program
         DebugPressAnyKeyToExit();
     }
 
-    static Process LaunchProcess(string processName, string arguments)
+    static Process LaunchProcess(Config config, string processName = "d2r.exe")
     {
         try
         {
-            return ProcessHelper.Start(processName, arguments, !_debugLogging, false);
+            return ProcessHelper.Start(processName, config.CommandLineArguments, !_debugLogging, false);
         }
         catch (Exception ex)
         {
             ErrorLogHandler($"Error launching process: {ex.Message}");
             return null;
         }
+    }
+
+    static Config TryLoadConfig()
+    {
+        return ConfigHelper.LoadConfig(CONFIG_NAME, ErrorLogHandler);
     }
 
     static void TrySetupLanguage(Config config)
@@ -98,19 +70,6 @@ partial class Program
         if (!(config?.MemoryConfigs is List<MemoryConfig> memoryConfigs)) return;
 
         ProcessHelper.EditMemory(process.Id, memoryConfigs.ToArray(), DebugLogHandler, ErrorLogHandler);
-    }
-    static Config LoadConfig(string configPath)
-    {
-        try
-        {
-            string jsonContent = File.ReadAllText(configPath);
-            return JsonConvert.DeserializeObject<Config>(jsonContent);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error loading config: {ex.Message}");
-            return null;
-        }
     }
 
     private static void DebugLogHandler(string message)
