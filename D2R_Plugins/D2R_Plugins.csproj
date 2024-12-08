@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	<LangVersion>preview</LangVersion>
     <ApplicationIcon>d2r_alpha_icon2_bB2_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
