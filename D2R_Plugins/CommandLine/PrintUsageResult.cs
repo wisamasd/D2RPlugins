@@ -8,6 +8,7 @@ internal class PrintUsageResult : ICommandLineParserResult
     {
         COMMAND_LIST,
         CONFIG,
+        EXPORT,
         SET_LANGUAGE,
         EXE
     }
@@ -31,13 +32,17 @@ internal class PrintUsageResult : ICommandLineParserResult
         switch (_usage)
         {
             case Usage.COMMAND_LIST:
-                PrintUage("[filename] [/config] [/language]");
+                PrintUage("[filename] [/export] [/config] [/language]");
                 PrintCommandsHeader();
                 PrintKeyValuePairs(new Dictionary<string, string> {
                     { "[filename]", "The absolute or relative path to d2r.exe. By default, the exe is used in the same directory." },
                     { "/config", "Set the configuration file to be used." },
+                    { "/export", "Export default config to json file." },
                     { "/language", "Sets the language for the game. Text and audio." },
                 });
+                break;
+            case Usage.EXPORT:
+                PrintUage("/export <path to new config>");
                 break;
             case Usage.SET_LANGUAGE:
                 PrintUage("/language <lang code>");

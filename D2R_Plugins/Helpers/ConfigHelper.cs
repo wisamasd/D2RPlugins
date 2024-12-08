@@ -31,4 +31,16 @@ internal class ConfigHelper
 
         return result;
     }
+
+    internal static void SaveConfig(string configPath, Config config, Action<string> errorLogging = null)
+    {
+        try
+        {
+            File.WriteAllText(configPath, JsonConvert.SerializeObject(config, Formatting.Indented));
+        }
+        catch (Exception ex)
+        {
+            errorLogging?.Invoke($"Error saving config: {ex.Message}.");
+        }
+    }
 }

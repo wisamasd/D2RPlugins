@@ -14,6 +14,8 @@ internal class CommandLineParser
                 case "/?":
                 case "/help":
                     return new PrintUsageResult(PrintUsageResult.Usage.COMMAND_LIST);
+                case "/export":
+                    return ParseExportDefaultConfigCommand(commandLineArguments.Skip(1));
                 case "/config":
                     return ParseConfigurationCommand(commandLineArguments.Skip(1));
                 case "/language":
@@ -33,6 +35,15 @@ internal class CommandLineParser
             return new RunExeWithConfigResult(Constants.Defaults.EXE_NAME, configurationCommandLineArguments[0]);
         }
         return new PrintUsageResult(PrintUsageResult.Usage.CONFIG, Constants.Errors.PARSE_CONFIG);
+    }
+
+    private ICommandLineParserResult ParseExportDefaultConfigCommand(string[] exportDefaultConfigCommandLineArguments)
+    {
+        if (exportDefaultConfigCommandLineArguments.Length == 1) 
+        {
+            return new SaveDefaultConfigResult(exportDefaultConfigCommandLineArguments[0]);
+        }
+        return new PrintUsageResult(PrintUsageResult.Usage.EXPORT);
     }
 
     private ICommandLineParserResult ParseExeFirstCommand(string[] exportDefaultConfigCommandLineArguments)
