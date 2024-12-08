@@ -5,8 +5,9 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using D2R_Plugins.Helpers;
 
-namespace MemoryEditor
+namespace D2R_Plugins
 {
     class Program
     {
@@ -61,11 +62,18 @@ namespace MemoryEditor
             public string Values { get; set; }
         }
 
+        public class LanguageConfig
+        {
+            public string Locale { get; set; }
+            public string LocaleAudio { get; set; }
+        }
+
         public class Config
         {
             public string CommandLineArguments { get; set; }
             public bool DebugLogging { get; set; }
             public bool MonsterStatsDisplay { get; set; }
+            public LanguageConfig Language { get; set; }
             public List<MemoryConfig> MemoryConfigs { get; set; }
         }
         #endregion
@@ -79,6 +87,15 @@ namespace MemoryEditor
             {
                 Console.WriteLine("Failed to load configuration.");
                 return;
+            }
+
+            if (!OsiHelper.HasLocaleSetup())
+            {
+                OsiHelper.SetupDefaultLocales();
+            }
+            if (config.Language != null)
+            {
+                OsiHelper.TrySetupLocales(config.Language.Locale, config.Language.LocaleAudio);
             }
 
             debugLogging = config.DebugLogging;

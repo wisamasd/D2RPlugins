@@ -5,11 +5,12 @@
     <TargetFramework>net45</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
 	<LangVersion>preview</LangVersion>
-    <ApplicationIcon>d2r_alpha_icon2_bB2_icon.ico</ApplicationIcon>
+
+    <ApplicationIcon>Resources\d2r_alpha_icon2_bB2_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="d2r_alpha_icon2_bB2_icon.ico" />
+    <Content Include="Resources\d2r_alpha_icon2_bB2_icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
